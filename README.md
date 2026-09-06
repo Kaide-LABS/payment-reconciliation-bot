@@ -1,23 +1,26 @@
-# Payment Reconciliation Bot
+4.) # Automating Payment Reconciliation for Non-Tech Savvy Mom
 
-## Problem
+**Context & Challenge**
 
-Operations teams at waste-management companies manually cross-referenced payment portal records with internal Google Sheets, a tedious and error-prone process that delayed reconciliation and increased the risk of missed or duplicate payments.
+My mother runs a waste management business servicing commercial clients, with transactions logged through a payment portal. However, the platform had significant usability challenges:
 
-## Approach
+- Displayed only 25 transactions at a time, crashing beyond 500 entries.
+- Excessive technical jargon and unnecessary data fields (invoice numbers, payment gateways) cluttered the interface, complicating her reconciliation process.
+- Navigating the website was cumbersome, especially for non-tech savvy users.
 
-- Automated headless browser login and session management using Selenium with Chrome, handling credential entry, wait conditions, and cookie extraction.
-- Scraped paginated DataTable transaction records (up to 500 rows per page) from the TrackItPay portal, normalising dates and currency amounts for consistent matching.
-- Integrated with Google Sheets via the gspread API and OAuth2 service-account credentials to clear and refresh the reconciliation sheet with sorted, deduplicated transaction data.
+This required manual reconciliation efforts, consuming significant time and increasing the potential for human error.
 
-## Results
+**Approach**
 
-- Reduced a manual copy-paste reconciliation workflow to a single automated script execution.
-- Scrapes, normalises, and uploads up to 500 transactions per run, sorted chronologically, with full logging and error handling.
+- **Automated Web Scraping:**
+    - Utilized Selenium and BeautifulSoup to systematically scrape transactions directly from the payment portal.
+    - Bypassed the website’s inherent limitations by programmatically selecting transaction counts manageable by JSON responses.
+- **Simplified Data Structuring:**
+    - Extracted and cleaned essential transaction details only (dates, amounts, payer details), removing irrelevant technical fields to streamline reconciliation.
+- **Google Sheets Integration:**
+    - Automatically populated a structured, clear, and simplified Google Sheet.
+    - Implemented automated sorting and date-based organization to enhance clarity and ease of use.
 
-## How to Run
+**Outcome**
 
-```
-pip install -r requirements.txt
-python reconciliation_bot.py
-```
+The solution drastically simplified the reconciliation process, eliminating the need for navigating cumbersome web pages. This automation significantly reduced both my mother's stress and my own manual workload, providing a robust and user-friendly method of managing transaction records.
