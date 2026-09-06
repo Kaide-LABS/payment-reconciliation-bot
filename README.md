@@ -1,4 +1,4 @@
-4.) #Automating Payment Reconciliation for Non-Tech Savvy Mom
+# Automating Payment Reconciliation for Non-Tech Savvy Mom
 
 **Context & Challenge**
 
